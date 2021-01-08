@@ -53,4 +53,5 @@ class SlowAPIMiddleware(BaseHTTPMiddleware):
             response = await call_next(request)
             response = limiter._inject_headers(response, request.state.view_rate_limit)
             return response
+
         return await call_next(request)
